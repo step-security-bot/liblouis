@@ -8,7 +8,6 @@ table:
 flags: {testmode: bothDirections}
 tests:
 # Round trip tests
-# Commented tests currently fail backwards but should be fixed.
 
 # Test characters
   - [" ", " "]
@@ -25,7 +24,7 @@ tests:
   - [",", "⠂"]
   - ["-", "⠤⠤"]
   - [".", "⠄"]
-  - ["/", "⠠⠌", {xfail: true}]
+  - ["/", "⠠⠌", xfail: {forward: true}]
   - ["0", "⠼⠚"]
   - ["1", "⠼⠁"]
   - ["2", "⠼⠃"]
@@ -199,7 +198,7 @@ tests:
   
 #Times vs. bullit
   - ["\u2022Bullit", "⠘⠄⠨⠃⠥⠇⠇⠊⠞"]
-#  - ["2 \u00d7 2 = 4", "⠼⠃ ⠘⠄ ⠼⠃ ⠘⠶ ⠼⠙"]
+  - ["2 \u00d7 2 = 4", "⠼⠃ ⠘⠄ ⠼⠃ ⠘⠶ ⠼⠙", xfail: {backward: true}]
 
 # Section sign
   - ["§ 3", "⠬⠼⠉"]
@@ -213,7 +212,7 @@ tests:
   - ["1/2", "⠼⠁⠌⠃"]
   - ["12:34", "⠼⠁⠃⠒⠉⠙"]
   - ["2^10", "⠼⠃⠘⠬⠁⠚"]
-#  - ["2\u00d72", "⠼⠃⠘⠄⠼⠃"]
+  - ["2\u00d72", "⠼⠃⠘⠄⠼⠃", xfail: {backward: true}]
 
   - ["\"quotes\"", "⠶⠠⠟⠥⠕⠳⠎⠶"]
   - ["-dashes-", "⠤⠙⠁⠎⠓⠑⠎⠤"]
@@ -221,7 +220,7 @@ tests:
   - [";-) ;-(", "⠆⠤⠠⠴ ⠆⠤⠠⠦"]
   - ["---", "⠤⠤⠤"]
   - ["-", "⠤⠤"]
-#  - [" -", " ⠤⠤"]
+  - [" -", " ⠤⠤", xfail: {backward: true}]
   - [" a-", " ⠠⠁⠤"]
   - [" - ", " ⠤⠤ "]
   - [" -a-", " ⠤⠠⠁⠤"]
@@ -404,9 +403,9 @@ tests:
 
   - ["1st", "⠼⠁⠠⠎⠞"]
   - ["2nd", "⠼⠃⠠⠝⠙"]
-  - ["1A", "⠼⠁⠨⠠⠁", {xfail: true}] # unclear spec
+  - ["1A", "⠼⠁⠨⠠⠁", xfail: {forward: true}] # unclear spec
   - ["1a", "⠼⠁⠠⠁"]
-  - ["2B", "⠼⠃⠨⠠⠃", {xfail: true}] # unclear spec
+  - ["2B", "⠼⠃⠨⠠⠃", xfail: {forward: true}] # unclear spec
   - ["2b", "⠼⠃⠠⠃"]
 
 # Multi-pass tests

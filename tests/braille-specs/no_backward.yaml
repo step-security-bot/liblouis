@@ -12,4 +12,4 @@ tests:
 
 flags: {testmode: bothDirections}
 tests:
-  - [nlb.no, ⠣⠝⠇⠃⠄⠝⠕⠜, {xfail: true}]
+  - [nlb.no, ⠣⠝⠇⠃⠄⠝⠕⠜, xfail: {backward: true}]
