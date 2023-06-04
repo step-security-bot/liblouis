@@ -16,20 +16,25 @@ jobs:
   Fuzzing:
     runs-on: ubuntu-latest
     steps:
+    - name: Harden Runner
+      uses: step-security/harden-runner@128a63446a954579617e875aaab7d2978154e969 # v2.4.0
+      with:
+        egress-policy: audit
+
     - name: Build Fuzzers
       id: build
-      uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@master
+      uses: google/oss-fuzz/infra/cifuzz/actions/build_fuzzers@7df76f3127fb5959bf7dfc21414eab61fe425949 # master
       with:
         oss-fuzz-project-name: 'liblouis'
         language: c
     - name: Run Fuzzers
-      uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@master
+      uses: google/oss-fuzz/infra/cifuzz/actions/run_fuzzers@7df76f3127fb5959bf7dfc21414eab61fe425949 # master
       with:
         oss-fuzz-project-name: 'liblouis'
         fuzz-seconds: 300
         language: c
     - name: Upload Crash
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
       if: failure() && steps.build.outcome == 'success'
       with:
         name: artifacts
