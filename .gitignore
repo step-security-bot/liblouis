@@ -228,6 +228,8 @@ TAGS
 /tests/braille-specs/*.trs
 
 # /tests/fuzzing/
+/tests/fuzzing/Makefile
+/tests/fuzzing/Makefile.in
 /tests/fuzzing/.deps
 /tests/fuzzing/.dirstamp
 /tests/fuzzing/.libs
@@ -235,6 +237,9 @@ TAGS
 /tests/fuzzing/*.profraw
 /tests/fuzzing/CORPUS/*
 /tests/fuzzing/crash-*
+/tests/fuzzing/fuzz_backtranslate
+/tests/fuzzing/fuzz_translate
+/tests/fuzzing/fuzz_translate_generic
 /tests/fuzzing/fuzz-*.log
 /tests/fuzzing/leak-*
 /tests/fuzzing/oom-*
